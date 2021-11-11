@@ -16,6 +16,7 @@ def accountApi(request,id=0):
         accounts = account.objects.all()
         accounts_serializers = accountSerializers(accounts,many = True)
         return JsonResponse(accounts_serializers.data, safe = False)
+
     elif request.method == 'POST':
         account_data = JSONParser().parse(request)
         accounts_serializers = accountSerializers(data = account_data)
@@ -23,6 +24,7 @@ def accountApi(request,id=0):
             accounts_serializers.save()
             return JsonResponse("Added successfully", safe = False)
         return JsonResponse("Failed to Add", safe = False)
+
     elif request.method == 'PUT':
         account_data = JSONParser().parse(request)
         Account = account.objects.get(id = account_data['id'])
@@ -33,5 +35,5 @@ def accountApi(request,id=0):
         return JsonResponse("Failed to Update")
     elif request.method == 'DELETE':
         accounts = account.objects.get(id=id)
-        account.delete()
+        accounts.delete()
         return JsonResponse("Delete SuccessFUlly", safe = False)
