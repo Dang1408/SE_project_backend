@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from rectAPI.models import account, custormer
+from rectAPI.models import account, customer
 
 class accountSerializers(serializers.ModelSerializer):
     class Meta:
@@ -8,5 +8,5 @@ class accountSerializers(serializers.ModelSerializer):
 
 class customerSerializers(serializers.ModelSerializer):
     class Meta:
-        model = custormer
+        model = customer
         fields = ('name','phone','dateofbirth','Address','id_account')

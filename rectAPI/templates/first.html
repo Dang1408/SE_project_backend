@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="urf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <!--bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title> POs sytem </title>
+</head>
+
+<body>
+    <div class="bg-dark p-3">
+        <div class="row mx-0 pb-3 bg-light">
+            <div class="col-sm-8">
+                <p>
+                    Order
+                    <small, class="text-muted" id = "date"></small>
+                </p>
+                <div class="card rounded-3 mb-3">
+                    <div class="card-body">
+                        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active rounded-pill" id="pills-food-tab" data-bs-toggle="pill" data-bs-target="#pills-food" type="button" role="tab" aria-controls="pills-food" aria-selected="true">PIZZA</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link rounded-pill" id="pills-drink-tab" data-bs-toggle="pill" data-bs-target="#pills-drink" type="button" role="tab" aria-controls="pills-drink" aria-selected="false">DRINK</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link rounded-pill" id="pills-hamburger-tab" data-bs-toggle="pill" data-bs-target="#pills-hamburger" type="button" role="tab" aria-controls="pills-hamburger" aria-selected="false">HAMBURGER</button>
+                            </li>
+                            <li class="nav-item d-none" role="presentation">
+                                <button class="nav-link rounded-pill" id="pills-checkout-tab" data-bs-toggle="pill" data-bs-target="#pills-checkout" type="button" role="tab" aria-controls="pills-checkout" aria-selected="false">CHECK OUT</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-food" role="tabpanel" aria-labelledby="pills-food-tab">
+                        <div class="row row-cols-1 row-cols-md-4 g-4" id="Pizzatab">
+                            
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-drink" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="row row-cols-1 row-cols-md-4 g-4" id="Drinktab">
+                                
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-hamburger" role="tabpanel" aria-labelledby="pills-hamburger-tab">
+                        <div class="row row-cols-1 row-cols-md-4 g-4" id="Hamburgertab">
+                            
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-checkout" role="tabpanel" aria-labelledby="pills-checkout-tab">
+                        Check out
+                        <!--Check out-->
+                        <div class="row mb-3">
+                            <label for="colFormLabelLg" class="col-sm-4  col-form-label col-form-label-lg">Customer's Name</label>
+                            <div class="col-sm-8">
+
+                                <div class="row g-3">
+                                    <div class="col">
+                                      <input type="text" class="rounded-pill form-contro form-control-lg" placeholder="First name" aria-label="First name">
+                                    </div>
+                                    <div class="col">
+                                      <input type="text" class="rounded-pill form-contro form-control-lg" placeholder="Last name" aria-label="Last name">
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="colFormLabelLg" class="col-sm-4  col-form-label col-form-label-lg">Telephone's number</label>
+                            <div class="col-sm-8">
+                                <input type="tel" class="rounded-pill form-contro form-control-lg" id="telephonenumber" placeholder="phone">
+                            </div>
+                        </div>
+                        <!--Amount of order-->
+                        <div class="row  mb-3">
+                            <label for="colFormLabelLg" class="col-sm-4  col-form-label col-form-label-lg">Total of amount($)</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.01" class="rounded-pill form-contro l form-control-lg text-center" style="border:none;" id="amount" placeholder="amount" disabled>
+                            </div>
+                        </div>
+                        <!--Note-->
+                        <div class="row  mb-3">
+                            <label for="colFormLabelLg" class="col-sm-4  col-form-label col-form-label-lg">Note for this order</label>
+                            <div class="col-sm-8">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Note</label>
+                                  </div>
+                            </div>
+                        </div>
+                        <!--Payment button-->
+                        <li>
+                            <form action="./payment.html" method="post">
+                                <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill" onclick="passValues();">Payment</button>
+                            </form>
+                        </li>
+                    </div>
+                </div>
+                </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="d-flex justify-content-between align-items-center"><span> Order </span><button onclick="clearorder()" class="btn btn-sm btn-danger rounded-pill">Clear</button></h5>
+                        <hr>
+                        <ul id="orderlist" class="list-unstyled" style="height: 50vh; overflow-y: auto;">
+                        </ul>
+                        <hr>
+                        <ul class="list-unstyled mb-0">
+                            <li class="d-flex justify-content-between align-items-center">
+                                <big>Total item: </big><big id="totalitem" class="card-text fw-bold"></big> </span>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center">
+                                <big>Total Amount: </big><big class="fw-bold">$ <span id="totalcost" class="card-text" >0.00</span></big>
+                            </li>
+                            <li>
+                                <button disabled="" id="checkoutbutton" onclick="gotocheckouttab()" class="btn btn-primary btn-lg w-100 rounded-pill">CHECK OUT</button>
+                            </li>
+                        </ul>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+    
+    <!-- Modal -->
+    <div class="modal fade" id="detailfood" tabindex="-1" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-light text-dark">
+            <h5 class="modal-title" id="exampleModalLabel">ADD TO CART</h5>
+            <button type="button" class="btn-close" style ="background-color: bisque;" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class = "container" id="clickCard"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        const arrquantity = [];
+        const orderidarray = [];
+        const orderpricearray = [];
+        const orderitemarray = [];
+        const orderarray = [];
+        const orderimgarray = [];
+        const orderitemidarray = [];
+        let id = 0;
+
+        const  handleData = async ()=>{
+            const response = await fetch('https://617fa513055276001774fb86.mockapi.io/Pizza/');
+            const myJson = await response.json();
+            // Bây giờ chúng ta ánh xạ từng object bên trong'england'
+            // có thể là kiểu mảng array hoặc đối tượng object
+            // Gán cho biến html để thêm từng object vào.
+            const html = myJson.map((items) =>{
+                //console.log(items);
+            return `
+            <div class="col">
+                                <div class="card h-100" style="width:200px;height:200px;">
+                                    <img src="${items.ImageLink}" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                    <div class="card-body flex-row">
+                                        <h5 class="card-title"><b>${items.Name}</b></h5>
+                                        <p class="card-text">
+                                            <h5 class="d-flex justify-content-between align-items-center">
+                                                <span> <p class="card-text"><b><font color="red">$${items.Price}</font></b></p></span>
+                                                <button type="button"  onclick="userAction('${items.ImageLink}',${items.id},'${items.Name}','${items.Price}',${items.Protein},${items.Addictives},${items.BakingMaterial},${items.FoodDeco}, 'Pizza')" class="btn btn-primary rounded pid" style = "background-color: blue; text-align: left;" data-bs-toggle="modal" data-bs-target="#detailfood">
+                                                    <img src = "./media/cart.png" style="width:20px;height:20px">
+                                                </button>
+                                            </h5>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+            `;
+                        }).join(" ");
+            let a = document.querySelector("#Pizzatab");
+            a.innerHTML = html;          
+ };
+        handleData();
+
+        const  handleDataDrink = async ()=>{
+            const response = await fetch('https://617fa513055276001774fb86.mockapi.io/Drink/');
+            const myJson = await response.json();
+            // Bây giờ chúng ta ánh xạ từng object bên trong'england'
+            // có thể là kiểu mảng array hoặc đối tượng object
+            // Gán cho biến html để thêm từng object vào.
+            const html = myJson.map((items) =>{
+                ///console.log(items);
+            return `
+            <div class="col">
+                                <div class="card h-100" style="width:200px;height:200px;">
+                                    <img src="${items.ImageLink}" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                    <div class="card-body flex-row">
+                                        <h5 class="card-title"><b>${items.Name}</b></h5>
+                                        <p class="card-text">
+                                            <h5 class="d-flex justify-content-between align-items-center">
+                                                <span> <p class="card-text"><b><font color="red">$${items.Price}</font></b></p></span>
+                                                <button type="button"  onclick="userAction('${items.ImageLink}',${items.id},'${items.Name}','${items.Price}',${items.Protein},${items.Addictives},${items.BakingMaterial},${items.FoodDeco}, 'Drink')" class="btn btn-primary rounded pid" style = "background-color: blue; text-align: left;" data-bs-toggle="modal" data-bs-target="#detailfood">
+                                                    <img src = "./media/cart.png" style="width:20px;height:20px">
+                                                </button>
+                                            </h5>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+            `;
+                        }).join(" ");
+            let a = document.querySelector("#Drinktab");
+            a.innerHTML = html;
+                
+ };
+        handleDataDrink();
+
+        const  handleDataHamburger = async ()=>{
+            const response = await fetch('https://617fa513055276001774fb86.mockapi.io/Hamberger/');
+            const myJson = await response.json();
+            // Bây giờ chúng ta ánh xạ từng object bên trong'england'
+            // có thể là kiểu mảng array hoặc đối tượng object
+            // Gán cho biến html để thêm từng object vào.
+            const html = myJson.map((items) =>{
+                ///console.log(items);
+            return `
+            <div class="col">
+                                <div class="card h-100" style="width:200px;height:200px;">
+                                    <img src="${items.ImageLink}" class="card-img-top" alt="..." style="width:200px;height:200px;">
+                                    <div class="card-body flex-row">
+                                        <h5 class="card-title"><b>${items.Name}</b></h5>
+                                        <p class="card-text">
+                                            <h5 class="d-flex justify-content-between align-items-center">
+                                                <span> <p class="card-text"><b><font color="red">$${items.Price}</font></b></p></span>
+                                                <button type="button"  onclick="userAction('${items.ImageLink}',${items.id},'${items.Name}','${items.Price}',${items.Protein},${items.Addictives},${items.BakingMaterial},${items.FoodDeco}, 'Hamburger')" class="btn btn-primary rounded pid" style = "background-color: blue; text-align: left;" data-bs-toggle="modal" data-bs-target="#detailfood">
+                                                    <img src = "./media/cart.png" style="width:20px;height:20px">
+                                                </button>
+                                            </h5>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+            `;
+                        }).join(" ");
+            let a = document.querySelector("#Hamburgertab");
+            a.innerHTML = html;
+                
+ };
+        handleDataHamburger();
+        const userAction = async (ImageLink,id,Name,Price,Protein,Addictives,BakingMaterial,FoodDeco, catagory) => {
+            // const response = await fetch('https://617fa513055276001774fb86.mockapi.io/Hamberger/'+n);
+            // const myJson = await response.json();
+            // console.log(myJson);
+            // let a = n - 300;
+            // console.log(typeof(a));
+            document.getElementById('clickCard').innerHTML=
+            `<div class = "row">
+                        <div class = "col-4">
+                            <!--test form-->
+                            <img src="`+ImageLink+`" class="img-thumbnail" alt="...">
+                        </div>
+                        <div class = "col-8">
+                            <div>
+                                <div class="d-flex bd-highlight mb-3">
+                                    <div class="p-2 bd-highlight fs-5">SKU</div>
+                                    <div class="p-2 bd-highlight fs-5">`+catagory+`<!--put id tag in here--></div>
+                                    <div class="ms-auto p-2 bd-highlight fs-5">Unit Price</div>
+                                </div>
+                                <div class="d-flex bd-highlight mb-3">
+                                    <div class="p-2 bd-highlight fs-6">`+id+`<!--put id card in here--></div>
+                                    <div class="p-2 bd-highlight fs-6">`+Name+`<!--put id.name tag in here--></div>
+                                    <div class="ms-auto p-2 bd-highlight fs-6">`+Price+`<!--put id.price tag in here--></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <p class="card-text">
+                                <h5 class="d-flex justify-content-between align-items-center">
+                                    <span> <p class="card-text"><b>Quantity</b></p></span>
+                                    <div class="number">
+                                        <button class = "rounded-pill" style="margin-left: 36px; margin-bottom: 5px; margin-right: 10px;" onclick="decrease(this)">-</button>
+                                        <span class="value">1</span>
+                                        <button class = "rounded-pill" onclick="increase(this)" style="margin-left: 10px;">+</button>
+                                    </div>
+                                </h5>
+                            </p>
+                            <hr>
+                            <p class="fw-bold">Protein: `+Protein+`</p>
+                            <p class="fw-bold">Additives: `+Addictives+`</p>
+                            <p class="fw-bold">Baking material: `+BakingMaterial+`</p>
+                            <p class="fw-bold">Food decoration: `+FoodDeco+`</p>
+                            <p class="fs-4 fw-bold ">Side dishes(<font color="red">*</font>)</p>
+                            <p class="fs-6 fst-italic fw-lighter">Please select on of the properties below</p>
+                            <div class="form-check">
+                                <input class="form-check-input" style="background-color: blue;" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  Vegetables
+                                </label>
+                              </div>
+                            <hr>
+                            <button  class="btn btn-lg w-100 rounded-pill" id="addinorder" data-bs-dismiss="modal" style="background-color:#0d6efd; color: white;" onclick="order('`+Name+`', `+Price+`, '`+ImageLink+`',this.parentNode.childNodes[6].childNodes[3].childNodes[3]);">ADD into cart</button>
+                        </div>
+                    </div>`;
+            
+        }
+
+        //childNodes[3].childNodes[5].childNodes[3].innerHTML
+        let increase = e => {
+            // console.log(e.parentNode);
+            // e.parentNode.childNode[3].innerHTML++;
+            e.parentNode.childNodes[3].innerHTML++;
+
+        };
+        let decrease = e => {
+            if (e.parentNode.childNodes[3].innerHTML > 1)
+                e.parentNode.childNodes[3].innerHTML--;
+        };
+
+        function order(itemname, itemprice, itemimage, parent) {
+             ///add into an array
+            quantity = parent.innerHTML;
+            // console.log(quantity);
+            parent.innerHTML = 1;
+            orderidarray.push(id);
+            orderitemarray.push(itemname);
+            orderpricearray.push(itemprice);
+            ///orderitemidarray.push(itemid);
+            orderimgarray.push(itemimage);
+            arrquantity.push(quantity);
+            orderarray.push(itemname, itemprice, itemimage);
+            //console.log(arrquantity);
+            //console.log(orderpricearray);
+            ///increase id 
+            id++;
+            let orderlist = document.getElementById('orderlist');
+            ////create the Li tag
+            const orderitem = document.createElement('li');
+            orderitem.className = "d-flex justify-content-between align-items-center";
+
+            const orderitempricespan = document.createElement('span')
+                ///add a text to LI 
+            const orderItemname = document.createTextNode(' ' + itemname + "   ");
+            const orderprice = document.createTextNode('$' + itemprice + "    Quantity: " + quantity);
+            ////
+            orderitempricespan.className = 'text-danger';
+            orderitempricespan.appendChild(orderprice);
+            /////
+            ////create a delete button
+            const deletebutton = document.createElement('button');
+            const deletebuttontext = document.createTextNode('X');
+
+            ///append the test to delete
+            deletebutton.setAttribute('onclick', 'deleteitem('+id+',this)')
+            deletebutton.appendChild(deletebuttontext);
+            deletebutton.className = 'btn btn-danger rounded-pill';
+
+            ////
+            const orderitemimgtag = document.createElement('img');
+            ///assign the src itemimage to img
+            orderitemimgtag.src = itemimage;
+
+            ////console.log(itemimage);
+            orderitemimgtag.className = 'w-25 rounded border border-dark';
+            //create a span
+
+            const orderleftside = document.createElement('span');
+
+            /////add in a side
+            orderleftside.appendChild(orderitemimgtag);
+            orderleftside.appendChild(orderItemname);
+            orderleftside.appendChild(orderitempricespan);
+            //append child to LI
+            orderitem.appendChild(orderleftside);
+            orderitem.appendChild(deletebutton);
+            ///check
+            orderlist.appendChild(orderitem);
+            ///image section
+            ///add img text
+            totalitems();
+            costitem();
+            ///console.log(orderidarray);
+            enableCheckoutbutton();
+        };
+
+        function totalitems() {
+            document.getElementById('totalitem').innerText = orderitemarray.length;
+        };
+
+        function costitem() {
+            if (orderpricearray.length == 0) {
+                document.getElementById('totalcost').innerText = 0;
+            } else {
+                let totalcost = 0;
+                let totalamount = 0;
+                for(let i = 0; i<arrquantity.length;i++){
+                    totalcost += arrquantity[i] * orderpricearray[i];
+                    totalamount += arrquantity[i];
+                }
+                document.getElementById('totalcost').innerText = parseFloat(totalcost.toFixed(2));
+                document.getElementById('amount').value = parseFloat(totalcost.toFixed(2));
+            }
+            //orderpricearray.reduce(itemprice);
+        };
+        ///<li><img src = "./media/hamburger.jpg" style ="width: 50px;" /> <span>hamburger </span> <span class ="text-danger">$ 1.99 </span></li>
+        function clearorder() {
+            let orderlist = document.getElementById('orderlist');
+            document.getElementById('amount').value = 0;
+            orderlist.innerHTML = "";
+            orderitemarray.length = 0;
+            orderpricearray.length = 0;
+            orderarray.length = 0;
+            orderidarray.length = 0;
+            arrquantity.length = 0;
+            id = 0;
+            totalitems();
+            costitem();
+            enableCheckoutbutton();
+        }
+        function deleteitem(orderid, button) {
+            const indexnum = orderidarray.indexOf(orderid-1);
+            console.log(orderid);
+            orderidarray.splice(indexnum, 1);
+            orderitemarray.splice(indexnum, 1);
+            orderpricearray.splice(indexnum, 1);
+            orderimgarray.splice(indexnum, 1);
+            arrquantity.splice(indexnum, 1);
+            totalitems();
+            costitem();
+            orderlist.removeChild(button.parentElement);
+            if (orderpricearray.length === 0) {
+                document.getElementById('amount').value = 0;
+                enableCheckoutbutton();
+            }
+        };
+        ////enable check out
+        function enableCheckoutbutton() {
+            const checkoutbutton = document.getElementById('checkoutbutton');
+            checkoutbutton.disabled = true;
+            console.log(orderidarray.length);
+            if (orderidarray.length > 0) {
+                checkoutbutton.disabled = false;
+            }
+            if (orderidarray.length == 0) {
+                const backtofoodtab = document.getElementById('pills-food-tab');
+                const foodtab = new bootstrap.Tab(backtofoodtab);
+
+                foodtab.show();
+            }
+        };
+        ////open a new tab
+        function gotocheckouttab() {
+            const firstabel = document.getElementById('pills-checkout-tab');
+            const firsttab = new bootstrap.Tab(firstabel);
+
+            firsttab.show();
+        };
+          function passValues() {
+            var firstname = document.getElementById('amount').value;
+            localStorage.setItem('textvalue', firstname);
+            return false;
+        }
+    </script>
+    <!--date-->
+    <script>
+        var today = new Date();
+        var date = today.getDate()+'-'+(today.getMonth() +1)+'-'+today.getFullYear();
+        document.getElementById('date').innerHTML = date;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+
+
+</html>
