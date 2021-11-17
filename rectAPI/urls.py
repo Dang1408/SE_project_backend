@@ -7,5 +7,6 @@ from rectAPI import views
 urlpatterns = [
     path('',views.index),
     path('payment/', views.payment),
-    path('',views.payment),
+    #path('',views.payment),
+    path('payment',views.order),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
