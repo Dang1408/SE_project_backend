@@ -1,0 +1,229 @@
+                                   .header {
+                                        height: 7vh;
+                                        background-image: linear-gradient(0, #FFFAFA, #FFFFFF);
+                                    }
+                                    
+                                    .container {
+                                        background-image: linear-gradient(0, #E8E8E8, #E8E8E8);
+                                        width: auto;
+                                        height: 93vh;
+                                    }
+                                    
+                                    .header__navbar {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        height: 7vh;
+                                    }
+                                    
+                                    .header__navbar-list {
+                                        list-style: none;
+                                        padding-left: 0;
+                                    }
+                                    
+                                    .header__navbar-item {
+                                        display: inline-block;
+                                        line-height: 7vh;
+                                        
+                                    }
+                                    
+                                    .grid1 {
+                                        width: 1100px;
+                                        max-width: 98%;
+                                        margin: 0 auto;
+                                    }
+                                    
+                                    .it {
+                                        width: 400px;
+                                        margin: 100px auto 0 auto;
+                                    }
+                                    
+                                    .first {
+                                        background-image: linear-gradient(0, #E8E8E8, #E8E8E8);
+                                        height: 55px;
+                                        width: 400px;
+                                        margin: auto auto auto auto;
+                                    }
+                                    
+                                    .second {
+                                        background-image: linear-gradient(0, #FFFAFA, #FFFAFA);
+                                        height: 110px;
+                                        width: 400px;
+                                        margin: 0 auto auto auto;
+                                        border: none;
+                                    }
+                                    
+                                    .third {
+                                        background-image: linear-gradient(0, #E8E8E8, #E8E8E8);
+                                        height: 220px;
+                                        width: 400px;
+                                        margin: auto auto auto auto;
+                                        border: none;
+                                    }
+                                    
+                                    .fourth {
+                                        background-image: linear-gradient(0, #FFFAFA, #FFFAFA);
+                                        height: 70px;
+                                        width: 400px;
+                                        margin: auto auto auto auto;
+                                        padding-top: 30px;
+                                        padding-left: 270px;
+                                    }
+                                    
+                                    .boxmail {
+                                        margin: 20px 15px 5px 10px;
+                                        height: 45px;
+                                        width: 380px;
+                                        background-color: #F5F5DC;
+                                        text-align: center;
+                                        padding-top: 10px;
+                                        border: none;
+                                        color: #F0E68C;
+                                        font-style: italic;
+                                        font-weight: bold;
+                                        font-size: small;
+                                    }
+                                    
+                                    .wrapper {
+                                        display: grid;
+                                        grid-template-columns: 200px 200px;
+                                        grid-template-rows: 20px 20px;
+                                    }
+                                    
+                                    .component1 {
+                                        color: green;
+                                        font-size: large;
+                                        text-align: left;
+                                        padding-left: 10px;
+                                        padding-top: 5px;
+                                    }
+                                    
+                                    .component2 {
+                                        text-align: right;
+                                        font-size: large;
+                                        color: green;
+                                        padding-right: 10px;
+                                        padding-top: 5px;
+                                    }
+                                    
+                                    .component3 {
+                                        text-align: left;
+                                        font-size: small;
+                                        color: green;
+                                        padding-left: 10px;
+                                        padding-top: 5px;
+                                    }
+                                    
+                                    .component4 {
+                                        text-align: right;
+                                        color: green;
+                                        font-size: small;
+                                        padding-right: 10px;
+                                        padding-top: 5px;
+                                    }
+                                    
+                                    .buttonx {
+                                        color: blue;
+                                    }
+                                    
+                                    .header__navbar2 {
+                                        display: flex;
+                                        justify-content: space-between;
+                                    }
+                                    
+                                    .header__navbar-list2 {
+                                        list-style: none;
+                                        padding-left: 0;
+                                    }
+                                    
+                                    .header__navbar-item2 {
+                                        display: inline-block;
+                                        margin: 6px;
+                                        padding-top: 0;
+                                    }
+                                    
+                                    .inside {
+                                        margin: 50px 30px 20px 30px;
+                                        border: 5px 5px;
+                                        background-color: white;
+                                        height: auto;
+                                        padding-left: 20px;
+                                        color: green;
+                                    }
+                                    
+                                    .div_left {
+                                        width: 162px;
+                                        float: left;
+                                        padding-left: 10px;
+                                        border: none;
+                                        background-color: white;
+                                        margin: auto auto auto 30px;
+                                        height: 50px;
+                                        color: green;
+                                    }
+                                    
+                                    .div_right {
+                                        width: 162px;
+                                        float: right;
+                                        padding-left: 10px;
+                                        border: none;
+                                        background-color: white;
+                                        margin: auto 30px auto auto;
+                                        height: 50px;
+                                        color: green;
+                                    }
+                                    
+                                    .inside_other {
+                                        margin: 90px 30px 20px 30px;
+                                        border: none;
+                                        height: 50px;
+                                        text-align: center;
+                                        padding-top: 10px;
+                                    }
+                                    
+                                    .goup {
+                                        border: none;
+                                    }
+                                    
+                                    .goup1 {
+                                        width: 140px;
+                                       border: none;
+
+                                    }
+                                    
+                                    .j {
+                                        border: none;
+                                        background-color: #33CC66;
+                                    }
+                                    
+                                    .h {
+                                        border: none;
+                                        background-color: #33CC66;
+                                    }
+                                     .goup2 {
+                                       border: none;
+                                       width: 100px;
+                                   }
+#back{
+    color : black;
+    line-height: 7vh;
+}
+#black:hover{
+    text-decoration: none;
+
+}
+#cardname{
+    margin-left: 30px;
+    margin-bottom: 0;
+    font-size: 12px;
+}
+#inputCard{
+    border : none;
+    margin-bottom: 5px;
+}
+.app{
+    height: 100%;
+}
+html, body {
+    margin:0px;
+    height:100%;
+  }
